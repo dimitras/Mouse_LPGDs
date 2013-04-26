@@ -1,0 +1,15 @@
+Aorta data for Mouse LPGDS
+
+# 6 Datasets
+experiment KO: 3 replicates with about 20 samples each
+experiment WT: 3 replicates with about 20 samples each
+
+STEP 1: convert raw to mgf with msconvert tool
+STEP 2: search in mascot (search each experiment by each replicate and by all replicates, so 4 searches per experiment)
+STEP 3: serial conversion of dats to csvs (ruby script on mascot server)
+
+
+STEP 4: create a protein list with the unique proteins in each experiment (KO, WT)
+STEP 5: create a list with all proteins identified in each experiment, that don't overlap with the ones in the other experiment
+STEP 6: create a list with the identified proteins that are common in these experiments and calculate the significant and total 'matched peptides' ratios and log ratios for the differential expression, using the matched peptides abundance. NOTE: In case there are 0 significant peptide matches, the log ratio is not calculated, leaving an empty cell.
+
